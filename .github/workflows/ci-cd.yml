@@ -16,3 +16,5 @@ jobs:
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
+      - name: Login no DockerHub
+        run: echo "${{ secrets.DOCKER_USERNAME }}"
