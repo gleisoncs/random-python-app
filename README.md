@@ -18,7 +18,7 @@ eksctl create cluster \
   --managed
 
 ## Criar um repositório
-aws ecr create-repository --repository-name random-number-app --region us-east-2
+aws ecr create-repository --repository-name random-number-app --region us-east-1
 
 ## Get login password 
 aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <account>.dkr.ecr.us-east-2.amazonaws.com
