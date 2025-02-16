@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filebeat-config
+  namespace: default
+data:
+  filebeat.yml: |
+    filebeat.inputs:
+    - type: log
+      enabled: true
+      paths:
+        - /var/log/app/*.log
+    output.elasticsearch:
+      hosts: ["http://elasticsearch:9200"]
+      allow_older_versions: true

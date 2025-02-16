@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kibana-config
+data:
+  kibana.yml: |
+    server.name: kibana
+    server.host: "0.0.0.0"
+    elasticsearch.hosts: ["http://elasticsearch:9200"]
+    xpack.security.encryptionKey: "a_random_string_of_at_least_32_characters"
+    xpack.security.session.idleTimeout: "1h"
+    xpack.security.session.lifespan: "30d"
+    xpack.security.verificationMode: "none"
