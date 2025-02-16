@@ -15,16 +15,7 @@ on:
 
 jobs:
   build:
-    runs-on: python:3.9-slim
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
-
-  deploy:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
-      - name: Login no DockerHub
-        run: echo "${{ secrets.DOCKER_USERNAME }}"
