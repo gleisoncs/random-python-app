@@ -40,17 +40,17 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 
 ## Pod Checks
-kubectl get svc random-guid-service
-kubectl get svc random-guid-service
+kubectl get svc random-guid-service \
+kubectl get svc random-guid-service \
 kubectl get pods -o custom-columns="POD:metadata.name,IMAGE:spec.containers[*].image"
 
 ## Create configmap
 kubectl create configmap fluentd-config --from-file=fluent.conf
 
 ## Log Checks 
-kubectl describe pod random-number-deployment-bcb4c974d-t9hzt
-kubectl logs elasticsearch-698648d5bb-x6h5s -c elasticsearch
-kubectl logs elasticsearch-698648d5bb-x6h5s -c fluentd
-curl -X GET "http://<elastic-ip>:9200/_cat/indices?v"
-http://<load-balance-ip>.us-east-2.elb.amazonaws.com:5601/
+kubectl describe pod random-number-deployment-bcb4c974d-t9hzt \
+kubectl logs elasticsearch-698648d5bb-x6h5s -c elasticsearch \
+kubectl logs elasticsearch-698648d5bb-x6h5s -c fluentd \
+curl -X GET "http://<elastic-ip>:9200/_cat/indices?v" \
+http://<load-balance-ip>.us-east-2.elb.amazonaws.com:5601/ \
 kubectl exec -it kibana-569b469d7f-hb84b -- curl http://elasticsearch:9200
